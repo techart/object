@@ -1,0 +1,22 @@
+{
+    "name": "techart/object",
+    "description": "Объекты",
+    "version" : "3.0.3",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Techart",
+            "homepage": "http://web-techart.ru/"
+        }
+    ],
+    "autoload" : {
+        "psr-4": {
+            "Techart\\Object\\": "src/Object"
+        },
+        "classmap": ["src/Object.php"]
+    },
+    "require": {
+        "PHP": ">=5.5",
+        "techart/core": ">=3.0"
+    }
+}
