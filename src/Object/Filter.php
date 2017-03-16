@@ -16,57 +16,57 @@ namespace Techart\Object;
 class Filter
 {
 
-	/**
-	 * @var string название совйства
-	 */
-	protected $field;
+    /**
+     * @var string название совйства
+     */
+    protected $field;
 
-	/**
-	 * @var mixed значение свойства
-	 */
-	protected $value;
+    /**
+     * @var mixed значение свойства
+     */
+    protected $value;
 
-	/**
-	 * Конструктор
-	 *
-	 * @throws \Techart\Core\InvalidArgumentValueException Если вторым параметром передан null
-	 *
-	 * @param mixed  $value Значение, по которому происходит фильтрация.
-	 * @param string $field Название значения фильтрации.
-	 */
-	public function __construct($value, $field = 'group')
-	{
-		if (is_null($field)) {
-			throw new \Techart\Core\InvalidArgumentValueException('field', 'null');
-		}
+    /**
+     * Конструктор
+     *
+     * @throws \Techart\Core\InvalidArgumentValueException Если вторым параметром передан null
+     *
+     * @param mixed $value Значение, по которому происходит фильтрация.
+     * @param string $field Название значения фильтрации.
+     */
+    public function __construct($value, $field = 'group')
+    {
+        if (is_null($field)) {
+            throw new \Techart\Core\InvalidArgumentValueException('field', 'null');
+        }
 
-		$this->field = $field;
-		$this->value = $value;
-	}
+        $this->field = $field;
+        $this->value = $value;
+    }
 
-	/**
-	 * Проверка установленных в конструкторе значений.
-	 *
-	 *
-	 *
-	 * Если $e скаляр, то:
-	 * - возвращается true, если $e == $this->value
-	 * - иначе false.
-	 *
-	 * Если $e массив или объект возвращает true, если существует ключ $e[$this->field]
-	 * и $e[$this->field] == $this->value
-	 * Если нет или если такого ключа - то false.
-	 *
-	 * @param string|array|object $e .
-	 *
-	 * @return boolean
-	 */
-	public function filter($e)
-	{
-		if (is_scalar($e)) {
-			return ($e == $this->value);
-		} else {
-			return (isset($e[$this->field]) && $e[$this->field] == $this->value);
-		}
-	}
+    /**
+     * Проверка установленных в конструкторе значений.
+     *
+     *
+     *
+     * Если $e скаляр, то:
+     * - возвращается true, если $e == $this->value
+     * - иначе false.
+     *
+     * Если $e массив или объект возвращает true, если существует ключ $e[$this->field]
+     * и $e[$this->field] == $this->value
+     * Если нет или если такого ключа - то false.
+     *
+     * @param string|array|object $e .
+     *
+     * @return boolean
+     */
+    public function filter($e)
+    {
+        if (is_scalar($e)) {
+            return ($e == $this->value);
+        } else {
+            return (isset($e[$this->field]) && $e[$this->field] == $this->value);
+        }
+    }
 }
